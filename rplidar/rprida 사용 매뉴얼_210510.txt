@@ -1,0 +1,132 @@
+rprida 사용 매뉴얼
+
+www.slamtec.com/robostudio
+
+rplida ros 패키지를 설치한다.
+
+git clone https://github.com/Slamtec/rplidar_ros
+
+rplidar 튜토리얼
+
+https://github.com/robopeak/rplidar_ros/wiki
+
+## Check the authority of rplidar's serial-port :
+
+ls -l /dev |grep ttyUSB
+
+## Add the authority of write: (such as /dev/ttyUSB0)
+
+sudo chmod 666 /dev/ttyUSB0
+
+# rplida ros 패키지를 설치한다.
+
+cd catkin_ws/src
+git clone https://github.com/robopeak/rplidar_ros.git
+
+cd ..
+catkin_make
+source devel/setup.bash
+
+
+RpLiDAR SDK를 다음과 같이 다운로드하고 메이크한다.
+
+git clone https://github.com/Slamtec/rplidar_sdk
+cd rplidar_sdk/sdk
+make
+
+# rplidar 실행하기
+
+roscore  한 개의 터미널에서 실행하고
+
+다른 터미널에서 아래 명령을 실행한다.
+
+cd catkin_ws
+roslaunch rplidar_ros
+roslaunch rplidar_ros view_rplidar.launch
+
+rostopic echo /scan
+
+# rplidar 가 설치된 디렉토리 찾기
+rospack find rplidar_ros
+
+source ~/catkin_ws/devel/setup.bash
+
+# user를 dialout 그룹에 추가한다.
+# sudo adduser aijandi5 dialout
+
+# 다음과 같이 ttyUSB 읽기 권한을 획득한다. USB_SERIAL 룰을 추가했으면 이 명령어는 필요 없다.
+sudo chmod 666 /dev/ttyUSB0
+
+혹은 다음과 같이 권한을 영구히 설정한다.
+
+cd /etc/udev/rules.d/
+sudo touch 50-usb-serial.rules
+sudo gedit 50-usb-serial.rules
+
+And in the file that is opened by the GEdit, write these words: 
+
+KERNEL=="ttyUSB0", GROUP="aijandi5", MODE="0666" 
+
+some one told me that after this, I should run this command: 
+
+sudo /etc/init.d/udev restart
+but I did not run this command and it worked, too.
+
+연결된 UBS장치를 확인한다.
+
+usb-devices
+
+Bus=01 Lev=02 Prnt=02 Port=02 Cnt=01 Dev#=  3 Spd=12  MxCh= 0
+D:  Ver= 1.10 Cls=00(>ifc ) Sub=00 Prot=00 MxPS=64 #Cfgs=  1
+P:  Vendor=10c4 ProdID=ea60 Rev=01.00
+S:  Manufacturer=Silicon Labs
+S:  Product=CP2102 USB to UART Bridge Controller
+S:  SerialNumber=0001
+C:  #Ifs= 1 Cfg#= 1 Atr=80 MxPwr=100mA
+I:  If#= 0 Alt= 0 #EPs= 2 Cls=ff(vend.) Sub=00 Prot=00 Driver=cp210x
+
+
+usb-devices | grep "CP2102"
+
+이제 빌드된 rp_lidar/output/Linux/Release 폴더 밑의 RpLidar 예제를 다음과 같이 실행해 본다.
+cd ~/catkin_ws/rp_lidar/output/Linux/Release
+sudo ./ultra_simple
+
+rplidar 사용방법
+
+http://daddynkidsmakers.blogspot.com/2019/12/nvidia-nano-lidar.html
+
+https://automaticaddison.com/how-to-build-an-indoor-map-using-ros-and-lidar-based-slam/
+
+hector slam 설치하기
+
+sudo apt-get install qt4-qmake qt4-dev-tools
+cd ~/catkin_ws/src
+git clone https://github.com/tu-darmstadt-ros-pkg/hector_slam.git
+sudo gedit ~/catkin_ws/src/hector_slam/hector_mapping/launch/mapping_default.launch
+
+cd ~/catkin_ws/src/hector_slam/hector_slam_launch/launch
+
+gedit tutorial.launch
+
+cd ~/catkin_ws/
+catkin_make
+
+cd ~/catkin_ws/
+roslaunch rplidar_ros rplidar.launch
+roslaunch hector_slam_launch tutorial.launch
+
+cd ~/catkin_ws/src/hector_slam/hector_slam_launch/launch/
+
+pip install pygame
+
+pip install pymodbus
+pip install RPlidar
+
+pip install rplidar-roboticia
+
+#######################################333333333
+
+rplidar를 중지시킨다.
+
+rosservice call /stop_motor
