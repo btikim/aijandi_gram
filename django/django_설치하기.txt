@@ -1,0 +1,10 @@
+pip install Django
+
+git clone https://github.com/django/django.git
+
+장고 설치 가이드
+https://docs.djangoproject.com/en/3.2/intro/install/
+
+
+# aijandi라는 프로젝트를 새로 만든다
+django-admin startproject aijandi

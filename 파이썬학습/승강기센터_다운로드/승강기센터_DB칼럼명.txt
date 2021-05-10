@@ -1,0 +1,56 @@
+sido	    소재시(시/도)
+sigungu	    소재시(시/군/구)
+buld_nm	    건물명
+numOfRows	한 페이지 결과 수
+pageNo	    페이지 번호
+address1	소재지1
+address2	소재지2
+applcBeDt	운행유효기간(시작일)
+applcEnDt	운행유효기간(종료일)
+areaNo	    지역번호
+buldMgtNo1	건물관리번호1
+buldMgtNo2	건물관리번호2
+buldNm	    건물명
+buldPrpos	건물용도명
+divGroundFloorCnt	지상운행층수
+divUndgrndFloorCnt	지하운행층수
+elevatorNo	승강기번호
+elvtrAsignNo	승강기호기
+elvtrDivNm	승강기구분명
+elvtrFormNm	승강기형식명
+elvtrKindNm	승강기종류명
+elvtrMgtNo1	승강기관리번호1
+elvtrMgtNo2	승강기관리번호2
+elvtrModel	모델명
+elvtrResmptDe	승강기 재개일
+elvtrStts	승강기상태
+inspctInstt	최종검시기관
+installationDe	설치일자
+installationPlace	설치장소
+lastInspctDe	최종검사일
+lastInspctKind	최종검사종류
+lastResultNm	최종검사결과
+liveLoad	적재하중
+manufacturerName	제조업체명
+manufacturerTelno	제조업체전화번호
+mnfcturCpnyCd	제조업체코드
+mntCpnyCd	보수업체코드
+mntCpnyNm	보수업체명
+mntCpnyTelno	보수업체연락처
+partcpntNm	관리주체명
+partcpntTelno	관리주체연락처
+ratedCap	최대정원
+ratedSpeed	정격속도
+shuttleFloorCnt	승강기운행층수
+shuttleMngrNm	선임여부/운행관리자명
+shuttleMngrTelno	운행관리자연락처
+pauseAblDe	휴폐지일자
+pauseAbleResn	휴폐지사유
+shuttleSection	승강기운행구간
+sigunguCd	시/군/구 코드
+standardKey	표준키번호
+subcntrCpny	하도급/공동수급
+zipCd1	우편번호1
+zipCd2	우편번호2
+numOfRows	한 페이지 결과 수
+pageNo	페이지 번호
